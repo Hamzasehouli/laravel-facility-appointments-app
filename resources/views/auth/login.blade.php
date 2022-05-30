@@ -11,13 +11,6 @@
 <form action={{route('register')}} method="POST">
     @csrf
     <div>
-        @error('name')
-            {{$message}}
-        @enderror
-        <label for="name">
-            Name
-        </label>
-        <input name="name" id="name" type="name" value={{old('name')}}>
         @error('email')
         {{$message}}
     @enderror
@@ -32,14 +25,8 @@
             Password
         </label>
         <input name="password" id="password" type="password">
-        @error('password_confirmation')
-        {{$message}}
-    @enderror
-        <label for="password_confirmation">
-            Password confirmation
-        </label>
-        <input name="password_confirmation" id="password_confirmation" type="password_confirmation">
-        <button type="submit">submit</button>
+
+        <button type="submit">Log in</button>
     </div>
 </form>
 </body>
