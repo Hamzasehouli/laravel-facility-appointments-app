@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\RegisterController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,34 +19,17 @@ use Illuminate\Support\Facades\Route;
 //SINGUP
 /////////////////////////
 
-Route::get('/register', function () {
-    return view('auth\register');
-})->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 
-Route::post('/register', function (Request $request) {
-    $validated = $request->validate([
-        'name' => ['required', 'min:4'],
-        'email' => ['required'],
-        'password' => ['confirmed', 'required', 'min:8'],
-    ]);
-    return $validated;
-});
+Route::post('/register', [RegisterController::class, 'create']);
 
 /////////////////////////
 //LOGIN
 /////////////////////////
-Route::get('/login', function () {
-    return view('auth\login');
-})->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::post('/login', function (Request $request) {
-    $validated = $request->validate([
-        'email' => ['required'],
-        'password' => ['required', 'min:8'],
-    ]);
-    return $validated;
-});
+Route::post('/login', [LoginController::class, 'create']);
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('welcome')->with(['title' => 'Home']);
+})->name('home');
