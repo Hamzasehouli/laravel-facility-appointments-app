@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+/////////////////////////
+//SINGUP
+/////////////////////////
+
 Route::get('/register', function () {
     return view('auth\register');
 })->name('register');
@@ -25,9 +29,13 @@ Route::post('/register', function (Request $request) {
     ]);
     return $validated;
 });
+
+/////////////////////////
+//LOGIN
+/////////////////////////
 Route::get('/login', function () {
     return view('auth\login');
-})->name('register');
+})->name('login');
 
 Route::post('/login', function (Request $request) {
     $validated = $request->validate([

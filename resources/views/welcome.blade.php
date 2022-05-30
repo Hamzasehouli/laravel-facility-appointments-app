@@ -9,6 +9,8 @@
 <body>
 
     <p>Home</p>
+    <a href={{route('login')}}>Log in</a>
+    <a href={{route('register')}}>Sign up</a>
     
 </body>
 </html>
