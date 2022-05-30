@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 function Example() {
-    return <p>sss</p>;
+    return <p>hamza sehouli</p>;
 }
 
 export default Example;
